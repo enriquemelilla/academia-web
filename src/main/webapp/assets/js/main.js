@@ -1,0 +1,1 @@
+console.log("Academia Web cargada correctamente");
