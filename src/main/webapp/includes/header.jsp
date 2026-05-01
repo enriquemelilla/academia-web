@@ -9,7 +9,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.jsp">Academia Web</a>
+        <a class="navbar-brand fw-bold" href="<%= request.getContextPath() %>/index.jsp">Academia Web</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
             <span class="navbar-toggler-icon"></span>
@@ -19,7 +19,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.jsp">Cursos</a>
+                    <a class="nav-link active" href="<%= request.getContextPath() %>/cursos">Cursos</a>
                 </li>
 
                 <% if (logueado && !admin) { %>
