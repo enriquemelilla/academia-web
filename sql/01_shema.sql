@@ -1,4 +1,15 @@
-CREATE DATABASE IF NOT EXISTS academia_web;
+CREATE DATABASE IF NOT EXISTS academia_web
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE USER IF NOT EXISTS 'academia_user'@'localhost'
+IDENTIFIED BY 'academia1234';
+
+GRANT ALL PRIVILEGES ON academia_web.*
+TO 'academia_user'@'localhost';
+
+FLUSH PRIVILEGES;
+
 USE academia_web;
 
 -- TABLA USUARIOS
