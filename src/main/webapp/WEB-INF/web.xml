@@ -85,5 +85,61 @@
         <url-pattern>/curso-delete</url-pattern>
     </servlet-mapping>
 
+    <!-- CRUD ALUMNOS -->
+
+    <servlet>
+        <servlet-name>AlumnoListServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoListServlet</servlet-name>
+        <url-pattern>/alumnos</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AlumnoDetailServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoDetailServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoDetailServlet</servlet-name>
+        <url-pattern>/alumno-detalle</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AlumnoFormServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoFormServlet</servlet-name>
+        <url-pattern>/admin/alumno-form</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AlumnoSaveServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoSaveServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoSaveServlet</servlet-name>
+        <url-pattern>/alumno-save</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AlumnoDeleteServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoDeleteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoDeleteServlet</servlet-name>
+        <url-pattern>/alumno-delete</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
