@@ -38,7 +38,7 @@ public class TestConnectionServlet extends HttpServlet {
 
             List<Curso> cursos = jdbi.withExtension(
                     CursoDao.class,
-                    CursoDao::findAll
+                    CursoDao::findAllActive
             );
 
             response.getWriter().println("<h1>Conexión correcta con MariaDB</h1>");

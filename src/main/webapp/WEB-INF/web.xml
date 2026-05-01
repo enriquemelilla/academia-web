@@ -40,6 +40,50 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CursoListServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoListServlet</servlet-name>
+        <url-pattern>/cursos</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CursoDetailServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoDetailServlet</servlet-name>
+        <url-pattern>/curso-detalle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CursoFormServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoFormServlet</servlet-name>
+        <url-pattern>/admin/curso-form</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CursoSaveServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoSaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoSaveServlet</servlet-name>
+        <url-pattern>/curso-save</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CursoDeleteServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoDeleteServlet</servlet-name>
+        <url-pattern>/curso-delete</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>
