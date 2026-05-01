@@ -56,7 +56,11 @@
                     <a href="curso-detalle?id=<%= curso.getId() %>" class="btn btn-outline-primary btn-sm">Ver detalle</a>
 
                     <% if (!admin) { %>
-                    <a href="#" class="btn btn-primary btn-sm">Matricularme</a>
+                    <a href="<%= request.getContextPath() %>/matricula-create?cursoId=<%= curso.getId() %>"
+                       class="btn btn-primary btn-sm"
+                       onclick="return confirm('¿Deseas matricularte en este curso?')">
+                        Matricularme
+                    </a>
                     <% } %>
 
                     <% if (admin) { %>

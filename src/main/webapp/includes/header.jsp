@@ -24,7 +24,7 @@
 
                 <% if (logueado && !admin) { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mis matrículas</a>
+                    <a class="nav-link" href="<%= request.getContextPath() %>/mis-matriculas">Mis matrículas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Mi perfil</a>

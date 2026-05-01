@@ -85,7 +85,6 @@
         <url-pattern>/curso-delete</url-pattern>
     </servlet-mapping>
 
-    <!-- CRUD ALUMNOS -->
 
     <servlet>
         <servlet-name>AlumnoListServlet</servlet-name>
@@ -139,6 +138,28 @@
     <servlet-mapping>
         <servlet-name>AlumnoDeleteServlet</servlet-name>
         <url-pattern>/alumno-delete</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>MatriculaCreateServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.matricula.MatriculaCreateServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MatriculaCreateServlet</servlet-name>
+        <url-pattern>/matricula-create</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>MisMatriculasServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.matricula.MisMatriculasServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MisMatriculasServlet</servlet-name>
+        <url-pattern>/mis-matriculas</url-pattern>
     </servlet-mapping>
 
 
