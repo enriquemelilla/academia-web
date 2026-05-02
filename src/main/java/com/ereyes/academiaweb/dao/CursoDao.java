@@ -29,6 +29,16 @@ public interface CursoDao {
             """)
     Optional<Curso> findById(int id);
 
+    @SqlQuery("""
+        SELECT id, nombre, descripcion, horas, precio,
+               fecha_inicio AS fechaInicio, activo, imagen
+        FROM cursos
+        WHERE nombre LIKE CONCAT('%', ?, '%')
+          AND (? = 'TODOS' OR activo = ?)
+        ORDER BY fecha_inicio ASC
+        """)
+    List<Curso> search(String nombre, String estado, boolean activo);
+
     @SqlUpdate("""
             INSERT INTO cursos 
             (nombre, descripcion, horas, precio, fecha_inicio, activo, imagen)

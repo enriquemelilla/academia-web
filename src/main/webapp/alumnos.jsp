@@ -26,13 +26,36 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Gestión de alumnos</h1>
 
-        <% if (admin) { %>
+
+    </div>
+    <form method="get" action="<%= request.getContextPath() %>/alumnos" class="card card-body shadow-sm mb-4">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-5">
+                <label class="form-label">Nombre</label>
+                <input type="text" name="nombre" class="form-control"
+                       value="<%= request.getAttribute("nombre") != null ? request.getAttribute("nombre") : "" %>">
+            </div>
+
+            <div class="col-md-5">
+                <label class="form-label">DNI</label>
+                <input type="text" name="dni" class="form-control"
+                       value="<%= request.getAttribute("dni") != null ? request.getAttribute("dni") : "" %>">
+            </div>
+
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">Buscar</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="d-flex justify-content-end align-items-center mb-4">
+
+            <% if (admin) { %>
         <a href="<%= request.getContextPath() %>/admin/alumno-form" class="btn btn-success">
             Nuevo alumno
         </a>
-        <% } %>
+            <% } %>
     </div>
-
     <div class="card shadow-sm">
         <div class="card-body">
 
