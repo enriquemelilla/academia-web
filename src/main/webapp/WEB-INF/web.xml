@@ -208,5 +208,26 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>MiPerfilServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.MiPerfilServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MiPerfilServlet</servlet-name>
+        <url-pattern>/mi-perfil</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MiPerfilSaveServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.MiPerfilSaveServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MiPerfilSaveServlet</servlet-name>
+        <url-pattern>/mi-perfil-save</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>

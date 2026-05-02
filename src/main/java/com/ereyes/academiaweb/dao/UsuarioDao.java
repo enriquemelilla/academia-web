@@ -114,4 +114,12 @@ public interface UsuarioDao {
             WHERE id = ?
             """)
     void reactivar(int id);
+
+    @SqlUpdate("""
+        UPDATE usuarios
+        SET password = ?
+        WHERE id = ?
+    """)
+    void updatePassword(String password, int id);
+
 }

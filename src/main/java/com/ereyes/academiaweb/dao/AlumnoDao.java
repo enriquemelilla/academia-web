@@ -73,4 +73,11 @@ public interface AlumnoDao {
 
     @SqlUpdate("UPDATE alumnos SET activo = FALSE WHERE id = ?")
     void delete(int id);
+
+    @SqlUpdate("""
+        UPDATE alumnos
+        SET telefono = ?, email = ?, foto = ?
+        WHERE id = ?
+    """)
+    void updatePerfilUsuario(String telefono, String email, String foto, int id);
 }

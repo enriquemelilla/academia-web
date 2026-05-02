@@ -27,7 +27,7 @@
                     <a class="nav-link" href="<%= request.getContextPath() %>/mis-matriculas">Mis matrículas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mi perfil</a>
+                    <a class="nav-link" href="<%= request.getContextPath() %>/mi-perfil">Mi perfil</a>
                 </li>
                 <% } %>
 
