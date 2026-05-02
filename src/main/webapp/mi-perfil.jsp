@@ -83,7 +83,8 @@
         </div>
 
         <div class="card-body">
-            <form action="<%= request.getContextPath() %>/mi-perfil-save" method="post">
+            <form action="<%= request.getContextPath() %>/mi-perfil-save" method="post"
+                  onsubmit="return confirmarModificacion('este formulario')">
 
                 <div class="mb-3">
                     <label class="form-label">Teléfono</label>
