@@ -38,6 +38,7 @@ CREATE TABLE alumnos (
                          foto VARCHAR(255),
                          id_usuario INT NULL,
 
+                         CONSTRAINT uk_alumnos_id_usuario UNIQUE (id_usuario),
                          FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 -- TABLA CURSOS

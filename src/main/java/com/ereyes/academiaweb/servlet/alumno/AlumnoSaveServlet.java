@@ -29,6 +29,18 @@ public class AlumnoSaveServlet extends HttpServlet {
         String email = request.getParameter("email");
         String fechaNacimiento = request.getParameter("fechaNacimiento");
         boolean beca = request.getParameter("beca") != null;
+        String foto = request.getParameter("foto");
+
+        String idUsuarioParam = request.getParameter("idUsuario");
+        Integer idUsuario = null;
+
+        if (idUsuarioParam != null && !idUsuarioParam.isBlank()) {
+            idUsuario = Integer.parseInt(idUsuarioParam);
+        }
+
+        final Integer idUsuarioFinal = idUsuario;
+        final String fotoFinal = foto;
+
 
         if (nombre == null || nombre.isBlank() || dni == null || dni.isBlank()) {
             request.setAttribute("error", "El nombre y el DNI son obligatorios");
@@ -39,9 +51,9 @@ public class AlumnoSaveServlet extends HttpServlet {
         try {
             JdbiConfig.getJdbi().useExtension(AlumnoDao.class, dao -> {
                 if (idParam == null || idParam.isBlank()) {
-                    dao.insert(nombre, apellidos, dni, telefono, email, fechaNacimiento, beca);
+                    dao.insert(nombre, apellidos, dni, telefono, email, fechaNacimiento, beca, foto, idUsuarioFinal);
                 } else {
-                    dao.update(nombre, apellidos, dni, telefono, email, fechaNacimiento, beca, Integer.parseInt(idParam));
+                    dao.update(nombre, apellidos, dni, telefono, email, fechaNacimiento, beca, foto, idUsuarioFinal, Integer.parseInt(idParam));
                 }
             });
 

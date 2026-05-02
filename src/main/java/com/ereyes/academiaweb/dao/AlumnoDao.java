@@ -25,6 +25,18 @@ public interface AlumnoDao {
                fecha_nacimiento AS fechaNacimiento,
                beca, activo, foto, id_usuario AS idUsuario
         FROM alumnos
+        WHERE id_usuario = ?
+          AND activo = TRUE
+        """)
+    Optional<Alumno> findByUsuarioId(int usuarioId);
+
+
+
+    @SqlQuery("""
+        SELECT id, nombre, apellidos, dni, telefono, email,
+               fecha_nacimiento AS fechaNacimiento,
+               beca, activo, foto, id_usuario AS idUsuario
+        FROM alumnos
         WHERE activo = TRUE
           AND nombre LIKE CONCAT('%', ?, '%')
           AND dni LIKE CONCAT('%', ?, '%')
@@ -43,20 +55,21 @@ public interface AlumnoDao {
 
     @SqlUpdate("""
         INSERT INTO alumnos
-        (nombre, apellidos, dni, telefono, email, fecha_nacimiento, beca, activo)
-        VALUES (?, ?, ?, ?, ?, ?, ?, TRUE)
+        (nombre, apellidos, dni, telefono, email, fecha_nacimiento, beca, activo, foto, id_usuario)
+        VALUES (?, ?, ?, ?, ?, ?, ?, TRUE, ?, ?)
     """)
     void insert(String nombre, String apellidos, String dni, String telefono,
-                String email, String fechaNacimiento, boolean beca);
+                String email, String fechaNacimiento, boolean beca, String foto, Integer idUsuario);
 
     @SqlUpdate("""
         UPDATE alumnos
-        SET nombre=?, apellidos=?, dni=?, telefono=?, email=?, 
-            fecha_nacimiento=?, beca=?
-        WHERE id=?
+        SET nombre = ?, apellidos = ?, dni = ?, telefono = ?, email = ?, 
+            fecha_nacimiento = ?, beca = ?, foto = ?, id_usuario = ?
+        WHERE id = ?
     """)
     void update(String nombre, String apellidos, String dni, String telefono,
-                String email, String fechaNacimiento, boolean beca, int id);
+                String email, String fechaNacimiento, boolean beca, String foto, Integer idUsuario, int id);
+
 
     @SqlUpdate("UPDATE alumnos SET activo = FALSE WHERE id = ?")
     void delete(int id);
