@@ -162,5 +162,51 @@
         <url-pattern>/mis-matriculas</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UsuarioListServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioListServlet</servlet-name>
+        <url-pattern>/usuarios</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsuarioFormServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioFormServlet</servlet-name>
+        <url-pattern>/admin/usuario-form</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsuarioSaveServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioSaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioSaveServlet</servlet-name>
+        <url-pattern>/usuario-save</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsuarioDeleteServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioDeleteServlet</servlet-name>
+        <url-pattern>/usuario-delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsuarioReactivateServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioReactivateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioReactivateServlet</servlet-name>
+        <url-pattern>/usuario-reactivate</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>

@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<%= request.getContextPath() %>/alumnos">Alumnos</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= request.getContextPath() %>/usuarios">Usuarios</a>
+                </li>
                 <% } %>
 
             </ul>
