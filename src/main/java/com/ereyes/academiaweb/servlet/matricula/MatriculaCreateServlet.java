@@ -5,6 +5,9 @@ import com.ereyes.academiaweb.dao.MatriculaDao;
 import com.ereyes.academiaweb.model.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
+import com.ereyes.academiaweb.dao.AlumnoDao;
+import com.ereyes.academiaweb.model.Alumno;
+import java.util.Optional;
 
 import java.io.IOException;
 
@@ -30,7 +33,17 @@ public class MatriculaCreateServlet extends HttpServlet {
          usuario USER tiene id = 2
          alumno Enrique tiene id = 1 y está vinculado a id_usuario = 2
         */
-        int alumnoId = 1;
+        Optional<Alumno> alumno = JdbiConfig.getJdbi().withExtension(
+                AlumnoDao.class,
+                dao -> dao.findByUsuarioId(usuario.getId())
+        );
+
+        if (alumno.isEmpty()) {
+            response.sendRedirect(request.getContextPath() + "/cursos");
+            return;
+        }
+
+        int alumnoId = alumno.get().getId();
 
         try {
             JdbiConfig.getJdbi().useExtension(MatriculaDao.class, dao -> {

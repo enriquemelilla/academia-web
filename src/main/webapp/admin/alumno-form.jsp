@@ -1,9 +1,12 @@
 <%@ page import="com.ereyes.academiaweb.model.Alumno" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.ereyes.academiaweb.model.Usuario" %>
 
 <%
     Alumno alumno = (Alumno) request.getAttribute("alumno");
     boolean editando = alumno != null;
+    List<Usuario> usuariosUser = (List<Usuario>) request.getAttribute("usuariosUser");
 %>
 
 <!DOCTYPE html>
@@ -100,6 +103,26 @@
                            class="form-control"
                            placeholder="nombre-foto.jpg"
                            value="<%= editando && alumno.getFoto() != null ? alumno.getFoto() : "" %>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Usuario asociado</label>
+                    <select name="idUsuario" class="form-select">
+                        <option value="">Sin usuario asociado</option>
+
+                        <% if (usuariosUser != null) {
+                            for (Usuario usuario : usuariosUser) { %>
+
+                        <option value="<%= usuario.getId() %>"
+                                <%= editando && alumno.getIdUsuario() != null && alumno.getIdUsuario() == usuario.getId() ? "selected" : "" %>>
+                            <%= usuario.getNombre() %> <%= usuario.getApellidos() %> - <%= usuario.getEmail() %>
+                        </option>
+
+                        <%  }
+                        } %>
+                    </select>
+                    <div class="form-text">
+                        Solo se muestran usuarios activos con rol USER. Los usuarios ADMIN no se asocian a alumnos.
+                    </div>
                 </div>
 
                 <div class="form-check mb-4">

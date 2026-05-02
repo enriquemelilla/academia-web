@@ -47,6 +47,36 @@ public interface UsuarioDao {
         """)
     List<Usuario> search(String email, String rolFiltro, String rolValor);
 
+    @SqlQuery("""
+        SELECT u.id, u.nombre, u.apellidos, u.email, u.password, u.rol,
+               u.activo, u.fecha_alta AS fechaAlta
+        FROM usuarios u
+        WHERE u.rol = 'USER'
+          AND u.activo = TRUE
+          AND (
+              NOT EXISTS (
+                  SELECT 1
+                  FROM alumnos a
+                  WHERE a.id_usuario = u.id
+                    AND a.activo = TRUE
+              )
+              OR u.id = ?
+          )
+        ORDER BY u.nombre
+        """)
+    List<Usuario> findUsuariosUserDisponibles(Integer idUsuarioActual);
+
+    @SqlQuery("""
+        SELECT id, nombre, apellidos, email, password, rol,
+               activo, fecha_alta AS fechaAlta
+        FROM usuarios
+        WHERE rol = 'USER'
+          AND activo = TRUE
+        ORDER BY nombre
+        """)
+    List<Usuario> findUsuariosUserActivos();
+
+
     @SqlUpdate("""
             INSERT INTO usuarios
             (nombre, apellidos, email, password, rol, activo, fecha_alta)

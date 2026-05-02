@@ -6,6 +6,9 @@ import com.ereyes.academiaweb.model.Matricula;
 import com.ereyes.academiaweb.model.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
+import com.ereyes.academiaweb.dao.AlumnoDao;
+import com.ereyes.academiaweb.model.Alumno;
+import java.util.Optional;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,7 +30,18 @@ public class MisMatriculasServlet extends HttpServlet {
          Temporalmente usamos alumnoId = 1 para el usuario de prueba.
          Más adelante, en zona privada, lo resolveremos desde la relación alumno.id_usuario.
         */
-        int alumnoId = 1;
+        Optional<Alumno> alumno = JdbiConfig.getJdbi().withExtension(
+                AlumnoDao.class,
+                dao -> dao.findByUsuarioId(usuario.getId())
+        );
+
+        if (alumno.isEmpty()) {
+            request.setAttribute("matriculas", List.of());
+            request.getRequestDispatcher("/mis-matriculas.jsp").forward(request, response);
+            return;
+        }
+
+        int alumnoId = alumno.get().getId();
 
         List<Matricula> matriculas = JdbiConfig.getJdbi().withExtension(
                 MatriculaDao.class,
