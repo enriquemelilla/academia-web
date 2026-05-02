@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <title>Cursos - Academia Web</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/assets/css/styles.css" rel="stylesheet">
 </head>
 <body>
 
@@ -61,11 +61,15 @@
         <% if (cursos != null) {
             for (Curso curso : cursos) { %>
 
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="curso-img bg-primary text-white">
-                    <%= curso.getNombre().substring(0, Math.min(3, curso.getNombre().length())).toUpperCase() %>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm curso-card">
+
+                <div class="curso-img-frame">
+                    <img src="<%= request.getContextPath() %>/<%= curso.getImagen() != null && !curso.getImagen().isBlank() ? curso.getImagen() : "uploads/cursos/default-curso.png" %>"
+                         class="curso-card-img"
+                         alt="Imagen del curso">
                 </div>
+
 
                 <div class="card-body">
                     <h5 class="card-title"><%= curso.getNombre() %></h5>
@@ -79,11 +83,11 @@
                 </div>
 
                 <div class="card-footer bg-white border-0 d-flex flex-wrap gap-2">
-                    <a href="curso-detalle?id=<%= curso.getId() %>" class="btn btn-outline-primary btn-sm">Ver detalle</a>
+                    <a href="curso-detalle?id=<%= curso.getId() %>" class="btn btn-secondary">Ver detalle</a>
 
                     <% if (!admin) { %>
                     <a href="<%= request.getContextPath() %>/matricula-create?cursoId=<%= curso.getId() %>"
-                       class="btn btn-primary btn-sm"
+                       class="btn btn-primary"
                        onclick="return confirm('¿Deseas matricularte en este curso?')">
                         Matricularme
                     </a>

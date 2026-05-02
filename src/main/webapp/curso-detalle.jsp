@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <title>Detalle curso</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/assets/css/styles.css" rel="stylesheet">
 </head>
 <body>
 
@@ -22,12 +22,15 @@
 
 <main class="container my-5">
 
-    <div class="card shadow-sm">
-        <div class="curso-img bg-primary text-white">
-            <%= curso.getNombre() %>
+    <div class="card h-100 shadow-sm d-flex flex-column">
+        <div class="curso-detalle-img-frame">
+            <img src="<%= request.getContextPath() %>/<%= curso.getImagen() != null && !curso.getImagen().isBlank() ? curso.getImagen() : "uploads/cursos/default-curso.png" %>"
+                 class="curso-detalle-img"
+                 alt="Imagen del curso">
         </div>
 
-        <div class="card-body">
+
+        <div class="card-body flex-grow-1">
             <h1 class="h3"><%= curso.getNombre() %></h1>
 
             <p><%= curso.getDescripcion() %></p>
