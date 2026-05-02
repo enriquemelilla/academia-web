@@ -25,6 +25,18 @@ public interface AlumnoDao {
                fecha_nacimiento AS fechaNacimiento,
                beca, activo, foto, id_usuario AS idUsuario
         FROM alumnos
+        WHERE activo = TRUE
+          AND nombre LIKE CONCAT('%', ?, '%')
+          AND dni LIKE CONCAT('%', ?, '%')
+        ORDER BY nombre
+        """)
+    List<Alumno> search(String nombre, String dni);
+
+    @SqlQuery("""
+        SELECT id, nombre, apellidos, dni, telefono, email,
+               fecha_nacimiento AS fechaNacimiento,
+               beca, activo, foto, id_usuario AS idUsuario
+        FROM alumnos
         WHERE id = ?
     """)
     Optional<Alumno> findById(int id);

@@ -22,6 +22,32 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Gestión de usuarios</h1>
+    </div>
+
+    <form method="get" action="<%= request.getContextPath() %>/usuarios" class="card card-body shadow-sm mb-4">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-5">
+                <label class="form-label">Email</label>
+                <input type="text" name="email" class="form-control"
+                       value="<%= request.getAttribute("email") != null ? request.getAttribute("email") : "" %>">
+            </div>
+
+            <div class="col-md-5">
+                <label class="form-label">Rol</label>
+                <select name="rol" class="form-select">
+                    <option value="TODOS" <%= "TODOS".equals(request.getAttribute("rol")) ? "selected" : "" %>>Todos</option>
+                    <option value="ADMIN" <%= "ADMIN".equals(request.getAttribute("rol")) ? "selected" : "" %>>ADMIN</option>
+                    <option value="USER" <%= "USER".equals(request.getAttribute("rol")) ? "selected" : "" %>>USER</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">Buscar</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="d-flex justify-content-end align-items-center mb-4">
         <a href="<%= request.getContextPath() %>/admin/usuario-form" class="btn btn-success">Nuevo usuario</a>
     </div>
 

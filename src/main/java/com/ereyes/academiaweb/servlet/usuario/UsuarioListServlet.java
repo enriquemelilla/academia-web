@@ -22,12 +22,24 @@ public class UsuarioListServlet extends HttpServlet {
             return;
         }
 
+        String email = request.getParameter("email");
+        String rol = request.getParameter("rol");
+
+        if (email == null) email = "";
+        if (rol == null || rol.isBlank()) rol = "TODOS";
+
+        final String emailFiltro = email;
+        final String rolFiltro = rol;
+
         List<Usuario> usuarios = JdbiConfig.getJdbi().withExtension(
                 UsuarioDao.class,
-                UsuarioDao::findAll
+                dao -> dao.search(emailFiltro, rolFiltro, rolFiltro)
         );
 
         request.setAttribute("usuarios", usuarios);
+        request.setAttribute("email", emailFiltro);
+        request.setAttribute("rol", rolFiltro);
+
         request.getRequestDispatcher("/usuarios.jsp").forward(request, response);
     }
 }

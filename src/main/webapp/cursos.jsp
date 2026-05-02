@@ -26,6 +26,32 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Cursos disponibles</h1>
 
+
+    </div>
+
+    <form method="get" action="<%= request.getContextPath() %>/cursos" class="card card-body shadow-sm mb-4">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-6">
+                <label class="form-label">Buscar por nombre</label>
+                <input type="text" name="nombre" class="form-control"
+                       value="<%= request.getAttribute("nombre") != null ? request.getAttribute("nombre") : "" %>">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Estado</label>
+                <select name="estado" class="form-select">
+                    <option value="ACTIVOS" <%= "ACTIVOS".equals(request.getAttribute("estado")) ? "selected" : "" %>>Activos</option>
+                    <option value="TODOS" <%= "TODOS".equals(request.getAttribute("estado")) ? "selected" : "" %>>Todos</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">Buscar</button>
+            </div>
+        </div>
+    </form>
+    <div class="d-flex justify-content-end align-items-center mb-4">
+
         <% if (admin) { %>
         <a href="admin/curso-form" class="btn btn-success">Nuevo curso</a>
         <% } %>

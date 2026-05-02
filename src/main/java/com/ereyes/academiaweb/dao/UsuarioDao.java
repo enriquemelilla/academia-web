@@ -37,6 +37,16 @@ public interface UsuarioDao {
             """)
     Optional<Usuario> findById(int id);
 
+    @SqlQuery("""
+        SELECT id, nombre, apellidos, email, password, rol,
+               activo, fecha_alta AS fechaAlta
+        FROM usuarios
+        WHERE email LIKE CONCAT('%', ?, '%')
+          AND (? = 'TODOS' OR rol = ?)
+        ORDER BY id DESC
+        """)
+    List<Usuario> search(String email, String rolFiltro, String rolValor);
+
     @SqlUpdate("""
             INSERT INTO usuarios
             (nombre, apellidos, email, password, rol, activo, fecha_alta)

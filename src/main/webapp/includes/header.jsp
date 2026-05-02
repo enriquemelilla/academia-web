@@ -48,9 +48,9 @@
                 <span class="text-white small">
                         <%= usuarioSesion.getNombre() %> (<%= usuarioSesion.getRol() %>)
                     </span>
-                <a href="logout" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
+                <a href="<%= request.getContextPath() %>/logout" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
                 <% } else { %>
-                <a href="login.jsp" class="btn btn-outline-light btn-sm">Login</a>
+                <a href="<%= request.getContextPath() %>/login.jsp" class="btn btn-outline-light btn-sm">Login</a>
                 <% } %>
             </div>
         </div>
