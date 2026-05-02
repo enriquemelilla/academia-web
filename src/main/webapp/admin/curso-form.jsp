@@ -33,7 +33,7 @@
             </div>
             <% } %>
 
-            <form action="../curso-save" method="post">
+            <form action="<%= request.getContextPath() %>/curso-save" method="post" enctype="multipart/form-data">
 
                 <% if (editando) { %>
                 <input type="hidden" name="id" value="<%= curso.getId() %>">
@@ -71,10 +71,25 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Imagen</label>
-                    <input type="text" name="imagen" class="form-control"
-                           placeholder="nombre-imagen.jpg"
-                           value="<%= editando && curso.getImagen() != null ? curso.getImagen() : "" %>">
+                    <label class="form-label">Imagen del curso</label>
+                    <input type="file"
+                           name="imagenFile"
+                           class="form-control"
+                           accept="image/*">
+
+                    <% if (editando && curso.getImagen() != null && !curso.getImagen().isBlank()) { %>
+                    <div class="mt-3">
+                        <p class="text-muted mb-1">Imagen actual:</p>
+                        <img src="<%= request.getContextPath() %>/<%= curso.getImagen() %>"
+                             alt="Imagen del curso"
+                             class="img-thumbnail"
+                             style="max-width: 220px;">
+                    </div>
+
+                    <input type="hidden" name="imagenActual" value="<%= curso.getImagen() %>">
+                    <% } else { %>
+                    <input type="hidden" name="imagenActual" value="uploads/cursos/default-curso.png">
+                    <% } %>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Guardar</button>
