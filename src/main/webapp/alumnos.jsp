@@ -102,7 +102,7 @@
 
                         <a href="alumno-delete?id=<%= alumno.getId() %>"
                            class="btn btn-danger btn-sm"
-                           onclick="return confirm('¿Seguro que deseas dar de baja este alumno?')">
+                           onclick="return confirmarBaja('este alumno')">
                             Dar de baja
                         </a>
                         <% } %>

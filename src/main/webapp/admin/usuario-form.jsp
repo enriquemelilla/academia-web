@@ -33,7 +33,8 @@
             </div>
             <% } %>
 
-            <form action="<%= request.getContextPath() %>/usuario-save" method="post">
+            <form action="<%= request.getContextPath() %>/usuario-save" method="post"
+                onsubmit="return confirmarModificacion('este usuario')">
 
                 <% if (editando) { %>
                 <input type="hidden" name="id" value="<%= usuarioForm.getId() %>">

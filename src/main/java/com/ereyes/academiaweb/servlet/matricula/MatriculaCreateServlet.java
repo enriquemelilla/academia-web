@@ -46,15 +46,26 @@ public class MatriculaCreateServlet extends HttpServlet {
         int alumnoId = alumno.get().getId();
 
         try {
+            final boolean[] yaMatriculado = {false};
+
             JdbiConfig.getJdbi().useExtension(MatriculaDao.class, dao -> {
                 if (dao.exists(alumnoId, cursoId) == 0) {
                     dao.insert(alumnoId, cursoId);
+                } else {
+                    yaMatriculado[0] = true;
                 }
             });
 
-            response.sendRedirect(request.getContextPath() + "/mis-matriculas");
+            if (yaMatriculado[0]) {
+                request.getSession().setAttribute("errorCursos", "Ya estabas matriculado en este curso.");
+            } else {
+                request.getSession().setAttribute("mensajeCursos", "Matrícula realizada correctamente.");
+            }
+
+            response.sendRedirect(request.getContextPath() + "/cursos");
 
         } catch (Exception e) {
+            request.getSession().setAttribute("errorCursos", "No se pudo realizar la matrícula.");
             response.sendRedirect(request.getContextPath() + "/cursos");
         }
     }

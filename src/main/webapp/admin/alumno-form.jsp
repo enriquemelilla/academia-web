@@ -36,8 +36,8 @@
             </div>
             <% } %>
 
-            <form action="../alumno-save" method="post">
-
+            <form action="../alumno-save" method="post"
+                onsubmit="return confirmarModificacion('este alumno')">
                 <% if (editando) { %>
                 <input type="hidden" name="id" value="<%= alumno.getId() %>">
                 <% } %>
@@ -150,7 +150,7 @@
 <jsp:include page="../includes/footer.jsp"/>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/js/main.js"></script>
+<script src="<%= request.getContextPath() %>/assets/js/main.js"></script>
 
 </body>
 </html>

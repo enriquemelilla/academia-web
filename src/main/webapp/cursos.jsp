@@ -23,6 +23,23 @@
 
 <main class="container my-5">
 
+    <%
+        String mensajeCursos = (String) session.getAttribute("mensajeCursos");
+        String errorCursos = (String) session.getAttribute("errorCursos");
+        session.removeAttribute("mensajeCursos");
+        session.removeAttribute("errorCursos");
+    %>
+
+    <% if (mensajeCursos != null) { %>
+    <div class="alert alert-success"><%= mensajeCursos %></div>
+    <% } %>
+
+    <% if (errorCursos != null) { %>
+    <div class="alert alert-warning"><%= errorCursos %></div>
+    <% } %>
+
+
+
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Cursos disponibles</h1>
 
@@ -88,7 +105,7 @@
                     <% if (!admin) { %>
                     <a href="<%= request.getContextPath() %>/matricula-create?cursoId=<%= curso.getId() %>"
                        class="btn btn-primary"
-                       onclick="return confirm('¿Deseas matricularte en este curso?')">
+                       onclick="return confirmarMatricula()">
                         Matricularme
                     </a>
                     <% } %>
@@ -97,7 +114,7 @@
                     <a href="admin/curso-form?id=<%= curso.getId() %>" class="btn btn-warning btn-sm">Modificar</a>
                     <a href="curso-delete?id=<%= curso.getId() %>"
                        class="btn btn-danger btn-sm"
-                       onclick="return confirm('¿Seguro que deseas dar de baja este curso?')">
+                       onclick="return confirmarBaja('este curso')">
                         Dar de baja
                     </a>
                     <% } %>

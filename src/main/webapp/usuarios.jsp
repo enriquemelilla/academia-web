@@ -99,13 +99,13 @@
                         <% if (usuario.isActivo()) { %>
                         <a href="<%= request.getContextPath() %>/usuario-delete?id=<%= usuario.getId() %>"
                            class="btn btn-danger btn-sm"
-                           onclick="return confirm('¿Seguro que deseas dar de baja este usuario?')">
+                           onclick="return confirmarBaja('este usuario')">
                             Dar de baja
                         </a>
                         <% } else { %>
                         <a href="<%= request.getContextPath() %>/usuario-reactivate?id=<%= usuario.getId() %>"
                            class="btn btn-success btn-sm"
-                           onclick="return confirm('¿Seguro que deseas reactivar este usuario?')">
+                           onclick="return confirmarReactivacion('este usuario')">
                             Reactivar
                         </a>
                         <% } %>

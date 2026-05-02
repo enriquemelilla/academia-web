@@ -33,7 +33,8 @@
             </div>
             <% } %>
 
-            <form action="<%= request.getContextPath() %>/curso-save" method="post" enctype="multipart/form-data">
+            <form action="<%= request.getContextPath() %>/curso-save" method="post" enctype="multipart/form-data"
+                onsubmit="return confirmarModificacion('este curso')">
 
                 <% if (editando) { %>
                 <input type="hidden" name="id" value="<%= curso.getId() %>">
@@ -104,5 +105,6 @@
 <jsp:include page="../includes/footer.jsp"/>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="<%= request.getContextPath() %>/assets/js/main.js"></script>
 </body>
 </html>
