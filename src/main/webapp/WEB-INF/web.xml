@@ -11,4 +11,223 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <servlet>
+        <servlet-name>TestConnectionServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.TestConnectionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TestConnectionServlet</servlet-name>
+        <url-pattern>/test-connection</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.LogoutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CursoListServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoListServlet</servlet-name>
+        <url-pattern>/cursos</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CursoDetailServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoDetailServlet</servlet-name>
+        <url-pattern>/curso-detalle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CursoFormServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoFormServlet</servlet-name>
+        <url-pattern>/admin/curso-form</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CursoSaveServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoSaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoSaveServlet</servlet-name>
+        <url-pattern>/curso-save</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CursoDeleteServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.curso.CursoDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoDeleteServlet</servlet-name>
+        <url-pattern>/curso-delete</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AlumnoListServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoListServlet</servlet-name>
+        <url-pattern>/alumnos</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AlumnoDetailServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoDetailServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoDetailServlet</servlet-name>
+        <url-pattern>/alumno-detalle</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AlumnoFormServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoFormServlet</servlet-name>
+        <url-pattern>/admin/alumno-form</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AlumnoSaveServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoSaveServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoSaveServlet</servlet-name>
+        <url-pattern>/alumno-save</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AlumnoDeleteServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.alumno.AlumnoDeleteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AlumnoDeleteServlet</servlet-name>
+        <url-pattern>/alumno-delete</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>MatriculaCreateServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.matricula.MatriculaCreateServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MatriculaCreateServlet</servlet-name>
+        <url-pattern>/matricula-create</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>MisMatriculasServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.matricula.MisMatriculasServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MisMatriculasServlet</servlet-name>
+        <url-pattern>/mis-matriculas</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsuarioListServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioListServlet</servlet-name>
+        <url-pattern>/usuarios</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsuarioFormServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioFormServlet</servlet-name>
+        <url-pattern>/admin/usuario-form</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsuarioSaveServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioSaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioSaveServlet</servlet-name>
+        <url-pattern>/usuario-save</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsuarioDeleteServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioDeleteServlet</servlet-name>
+        <url-pattern>/usuario-delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsuarioReactivateServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.UsuarioReactivateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioReactivateServlet</servlet-name>
+        <url-pattern>/usuario-reactivate</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>MiPerfilServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.MiPerfilServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MiPerfilServlet</servlet-name>
+        <url-pattern>/mi-perfil</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MiPerfilSaveServlet</servlet-name>
+        <servlet-class>com.ereyes.academiaweb.servlet.usuario.MiPerfilSaveServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MiPerfilSaveServlet</servlet-name>
+        <url-pattern>/mi-perfil-save</url-pattern>
+    </servlet-mapping>
+
+
+
 </web-app>

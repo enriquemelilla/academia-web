@@ -1,0 +1,7 @@
+usuario {#id, nombre, apellidos, email, password, rol, activo, fecha_alta}
+
+alumno {#id, nombre, apellidos, dni, telefono, email, fecha_nacimiento, beca, activo, foto, -id_usuario}
+
+curso {#id, nombre, descripcion, horas, precio, fecha_inicio, activo, imagen}
+
+matricula {#id, fecha_matricula, estado, becado, activo, -id_alumno, -id_curso}
