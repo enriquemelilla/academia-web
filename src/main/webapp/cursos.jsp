@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="card-footer bg-white border-0 d-flex flex-wrap gap-2">
-                    <a href="curso-detalle?id=<%= curso.getId() %>" class="btn btn-secondary">Ver detalle</a>
+                    <a href="curso-detalle?id=<%= curso.getId() %>" class="btn btn-secondary">Detalle</a>
 
                     <% if (!admin) { %>
                     <a href="<%= request.getContextPath() %>/matricula-create?cursoId=<%= curso.getId() %>"
@@ -115,7 +115,7 @@
                     <a href="curso-delete?id=<%= curso.getId() %>"
                        class="btn btn-danger btn-sm"
                        onclick="return confirmarBaja('este curso')">
-                        Dar de baja
+                        Dar de Baja
                     </a>
                     <% } %>
                 </div>
